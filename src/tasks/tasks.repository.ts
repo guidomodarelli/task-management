@@ -3,6 +3,7 @@ import { Task } from "./task.entity";
 import { CreateTasksDto } from "./dto/create-task.dto";
 import { Injectable } from "@nestjs/common";
 import { GetTasksFilterDto } from "./dto/get-tasks-filter.dto";
+import { User } from "src/auth/user.entity";
 
 @Injectable()
 export class TasksRepository extends Repository<Task> {
@@ -32,12 +33,13 @@ export class TasksRepository extends Repository<Task> {
     return tasks;
   }
 
-  async createTask(createTaskDto: CreateTasksDto): Promise<Task> {
+  async createTask(createTaskDto: CreateTasksDto, user: User): Promise<Task> {
     const { title, description } = createTaskDto;
 
     const task = this.create({
       title,
       description,
+      user,
     })
 
     await this.save(task);
