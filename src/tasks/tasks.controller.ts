@@ -11,13 +11,7 @@ export class TasksController {
 
   @Get()
   getTasks(@Query() filterDto: GetTasksFilterDto): Promise<Task[]> {
-    // if we have any filters defined, call tasksService.getTasksWithFilters
-    // otherwise, just get al tasks
-    if (Object.keys(filterDto).length) {
-      return this.tasksService.getTasksWithFilters(filterDto);
-    } else {
-      return this.tasksService.getAllTasks();
-    }
+    return this.tasksService.getTasks(filterDto);
   }
 
   @Get('/:id')
