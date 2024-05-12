@@ -1,21 +1,21 @@
-import { DataSource, Repository } from "typeorm";
-import { Task } from "./task.entity";
-import { CreateTasksDto } from "./dto/create-task.dto";
-import { Injectable } from "@nestjs/common";
-import { GetTasksFilterDto } from "./dto/get-tasks-filter.dto";
-import { User } from "src/auth/user.entity";
+import { DataSource, Repository } from 'typeorm';
+import { Task } from './task.entity';
+import { CreateTasksDto } from './dto/create-task.dto';
+import { Injectable } from '@nestjs/common';
+import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
+import { User } from 'src/auth/user.entity';
 
 @Injectable()
 export class TasksRepository extends Repository<Task> {
-
   constructor(dataSource: DataSource) {
-    super(Task, dataSource.createEntityManager())
+    super(Task, dataSource.createEntityManager());
   }
 
-  async getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
+  async getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
     const { status, search } = filterDto;
     // This argument dictates how I can refer to a task within my queries.
     const query = this.createQueryBuilder('task');
+    query.where({ user });
 
     if (status) {
       query.andWhere('task.status = :status', { status });
@@ -25,7 +25,7 @@ export class TasksRepository extends Repository<Task> {
       query.andWhere(
         `LOWER(task.title) LIKE LOWER(:search) OR
           LOWER(task.description) LIKE LOWER(:search)`,
-        { search: `%${search}%` }
+        { search: `%${search}%` },
       );
     }
 
@@ -40,10 +40,9 @@ export class TasksRepository extends Repository<Task> {
       title,
       description,
       user,
-    })
+    });
 
     await this.save(task);
     return task;
   }
-
 }
