@@ -4,7 +4,7 @@ import { UsersRepository } from './users.repository';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import { compare as comparePasswords } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { JwtPayload } from './dto/jwt-payload.interface';
+import { JwtPayload } from './jwt-payload.interface';
 
 @Injectable()
 export class AuthService {
