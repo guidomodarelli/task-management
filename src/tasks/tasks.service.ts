@@ -11,8 +11,8 @@ import { NotFoundTaskException } from './exceptions/NotFoundTaskException';
 export class TasksService {
   constructor(
     @InjectRepository(TasksRepository)
-    private taskRepository: TasksRepository
-  ) { }
+    private taskRepository: TasksRepository,
+  ) {}
 
   getTasks(filterDto: GetTasksFilterDto): Promise<Task[]> {
     return this.taskRepository.getTasks(filterDto);
