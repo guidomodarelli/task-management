@@ -4,14 +4,15 @@ import { CreateTasksDto } from './dto/create-task.dto';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { Task } from './task.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { TasksRepository } from './tasks.repository';
+import { TasksPostgresRepository } from './tasks.repository';
 import { NotFoundTaskException } from './exceptions/NotFoundTaskException';
 import { User } from 'src/auth/user.entity';
+import { TasksRepository } from './tasks-repository.interface';
 
 @Injectable()
 export class TasksService {
   constructor(
-    @InjectRepository(TasksRepository)
+    @InjectRepository(TasksPostgresRepository)
     private taskRepository: TasksRepository,
   ) {}
 
