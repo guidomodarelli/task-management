@@ -21,7 +21,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         signOptions: {
           expiresIn: 3600,
         },
-      })
+      }),
     }),
     TypeOrmModule.forFeature([User]),
   ],

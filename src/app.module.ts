@@ -19,7 +19,7 @@ import { configValidationSchema } from './config.schema';
       // That is all I need to do to make my config service available for dependency
       // injection in my factory method.
       imports: [ConfigModule], // That means it depends on the config module
-      // So NestJS will wait for the config module to finish its initialization 
+      // So NestJS will wait for the config module to finish its initialization
       // because we've defined it here 👆
       //
       // We want to inject the config service and then in the useFactory method we
@@ -32,7 +32,9 @@ import { configValidationSchema } from './config.schema';
       //
       // The most important thing here is that you can do dependency injection in
       // this arrow function
-      useFactory: async (configService: ConfigService): Promise<TypeOrmModuleOptions> => {
+      useFactory: async (
+        configService: ConfigService,
+      ): Promise<TypeOrmModuleOptions> => {
         // I can actually do anything in this asynchronous function
         // I can perform HTTP calls if I have to grab my configuration from some
         // server or whatever.

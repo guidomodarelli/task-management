@@ -29,7 +29,7 @@ export class TasksController {
     private tasksService: TasksService,
     private configService: ConfigService,
   ) {
-    this.logger.verbose(configService.get('VAR'))
+    this.logger.verbose(configService.get('VAR'));
   }
 
   @Get()

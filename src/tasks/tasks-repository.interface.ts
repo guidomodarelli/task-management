@@ -5,7 +5,6 @@ import { CreateTasksDto } from './dto/create-task.dto';
 import { Repository } from 'typeorm';
 
 export abstract class TasksRepository extends Repository<Task> {
-
   abstract getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]>;
 
   abstract createTask(createTaskDto: CreateTasksDto, user: User): Promise<Task>;
