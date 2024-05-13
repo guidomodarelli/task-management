@@ -6,7 +6,7 @@ import { Task } from './task.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { TasksPostgresRepository } from './tasks.repository';
 import { NotFoundTaskException } from './exceptions/NotFoundTaskException';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { TasksRepository } from './tasks-repository.interface';
 
 @Injectable()

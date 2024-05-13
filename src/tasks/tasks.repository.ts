@@ -7,7 +7,7 @@ import {
   Logger,
 } from '@nestjs/common';
 import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
-import { User } from 'src/auth/user.entity';
+import { User } from '../auth/user.entity';
 import { TasksRepository } from './tasks-repository.interface';
 
 @Injectable()
