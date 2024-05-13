@@ -12,7 +12,6 @@
 
 import { Test } from '@nestjs/testing';
 import { TasksService } from './tasks.service';
-import { TasksRepository } from './tasks-repository.interface';
 import { TasksPostgresRepository } from './tasks.repository';
 import { User } from 'src/auth/user.entity';
 
