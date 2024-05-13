@@ -1,5 +1,3 @@
-import { DataSource, Repository } from 'typeorm';
-import { User } from './user.entity';
 import {
   ConflictException,
   Injectable,
@@ -7,13 +5,19 @@ import {
 } from '@nestjs/common';
 import { AuthCredentialsDto } from './dto/auth-credentials.dto';
 import * as bcrypt from 'bcrypt';
+import { UsersRepository } from './users-repository.interface';
+import { DataSource } from 'typeorm';
 
 @Injectable()
-export class UsersRepository extends Repository<User> {
+export class UsersPostgresRepository extends UsersRepository {
+  constructor(dataSource: DataSource) {
+    super(dataSource);
+  }
+
   private readonly DUPLICATED_CODE = 23505;
 
-  constructor(dataSource: DataSource) {
-    super(User, dataSource.createEntityManager());
+  protected isDuplicated(error: any): boolean {
+    return Number(error.code) === this.DUPLICATED_CODE;
   }
 
   async createUser(authCredentialsDto: AuthCredentialsDto): Promise<void> {
@@ -31,7 +35,7 @@ export class UsersRepository extends Repository<User> {
     try {
       await this.save(user);
     } catch (error) {
-      if (Number(error.code) === this.DUPLICATED_CODE) {
+      if (this.isDuplicated(error)) {
         throw new ConflictException('username already exists');
       }
       throw new InternalServerErrorException();
