@@ -35,12 +35,17 @@ import { configValidationSchema } from './config.schema';
       useFactory: async (
         configService: ConfigService,
       ): Promise<TypeOrmModuleOptions> => {
+        const isProduction = configService.get('STAGE') === 'prod';
         // I can actually do anything in this asynchronous function
         // I can perform HTTP calls if I have to grab my configuration from some
         // server or whatever.
         //
         // This object will be passed onto my module.
         return {
+          ssl: isProduction,
+          extra: {
+            ssl: isProduction ? { rejectUnauthorized: false } : null,
+          },
           type: 'postgres',
           autoLoadEntities: true,
           synchronize: true,

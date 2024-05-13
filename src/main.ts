@@ -12,7 +12,7 @@ async function bootstrap() {
   // explicit define it in any controller, or in any parameter.
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalInterceptors(new TransformInterceptor());
-  const port = 3000;
+  const port = process.env.PORT;
   await app.listen(port);
   logger.log(`Application listening on port ${port}`);
 }
