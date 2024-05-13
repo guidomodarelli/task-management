@@ -1,10 +1,10 @@
-import { NestFactory } from '@nestjs/core';
+import { NestApplication, NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { Logger, ValidationPipe } from '@nestjs/common';
 import { TransformInterceptor } from './transform.interceptor';
 
 async function bootstrap() {
-  const logger = new Logger();
+  const logger = new Logger(NestApplication.name);
   const app = await NestFactory.create(AppModule);
   app.enableCors();
   // So I'm going to basically tell NestJS whenever you encounter a validation
