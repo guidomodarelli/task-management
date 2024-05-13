@@ -6,6 +6,7 @@ import { TransformInterceptor } from './transform.interceptor';
 async function bootstrap() {
   const logger = new Logger();
   const app = await NestFactory.create(AppModule);
+  app.enableCors();
   // So I'm going to basically tell NestJS whenever you encounter a validation
   // decorator, I want you to run your validation pipe, so I don't have to
   // explicit define it in any controller, or in any parameter.
