@@ -17,7 +17,7 @@ export class TasksPostgresRepository extends TasksRepository {
   });
 
   constructor(dataSource: DataSource) {
-    super(Task, dataSource.createEntityManager());
+    super(dataSource);
   }
 
   async getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
