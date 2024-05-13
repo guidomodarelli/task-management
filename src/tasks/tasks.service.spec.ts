@@ -14,6 +14,9 @@ import { Test } from '@nestjs/testing';
 import { TasksService } from './tasks.service';
 import { TasksPostgresRepository } from './tasks.repository';
 import { User } from 'src/auth/user.entity';
+import { Task } from './task.entity';
+import { TaskStatus } from './task-status.enum';
+import { NotFoundTaskException } from './exceptions/NotFoundTaskException';
 
 // You can mock in multiple ways.
 // One way would just be to provide a plain object.
@@ -26,6 +29,7 @@ import { User } from 'src/auth/user.entity';
 // and so on.
 const mockTasksRepository = () => ({
   getTasks: jest.fn(),
+  findOneBy: jest.fn(),
 });
 
 const mockUser: User = {
@@ -82,6 +86,29 @@ describe('TasksService', () => {
       // DELETE
       // expect(tasksRepository.getTasks).toHaveBeenCalled();
       expect(result).toEqual('someValue');
+    });
+  });
+
+  describe('getTaskById', () => {
+    it('calls TasksRepository.findOneBy and returns the result', async () => {
+      const mockTask: Task = {
+        id: 'someId',
+        title: 'Test title',
+        description: 'Test description',
+        status: TaskStatus.OPEN,
+        user: mockUser,
+      };
+
+      tasksRepository.findOneBy.mockResolvedValue(mockTask);
+      const result = await tasksService.getTaskById('someId', mockUser);
+      expect(result).toEqual(mockTask);
+    });
+
+    it('calls TasksRepository.findOneBy and handles the error', async () => {
+      tasksRepository.findOneBy.mockResolvedValue(null);
+      expect(tasksService.getTaskById('someId', mockUser)).rejects.toThrow(
+        NotFoundTaskException,
+      );
     });
   });
 });
