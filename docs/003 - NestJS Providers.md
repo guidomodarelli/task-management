@@ -1,8 +1,8 @@
 # NestJS Providers
 
-- Can be injected into constructors if decorated as an `@Injectable`, via <u>dependency injection</u>
+- Can be injected into constructors if decorated as an `@Injectable`, via <ins>dependency injection</ins>
 - Can be a **plain value**, a **class**, **sync/async factory**, etc.
-- Providers must be <u>provided to a module</u> for them to be usable or <u>injectable</u>
+- Providers must be <ins>provided to a module</ins> for them to be usable or <ins>injectable</ins>
 - Can be exported from a module and then be available to other modules that import it.
 
 ## What is a service?

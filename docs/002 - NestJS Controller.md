@@ -6,8 +6,8 @@
 
 - The controller will then be the entry point, communicate with the service and return the result.
 - Bound to specific path (for example, `/tasks` for the task resource)
-- Contains <u>handlers</u>, which <u>endpoints</u> and <u>request methods</u> (GET, POST, DELETE, etc.)
-- Can take advantage of <u>dependency injection</u> to consume providers within the same module
+- Contains <ins>handlers</ins>, which <ins>endpoints</ins> and <ins>request methods</ins> (GET, POST, DELETE, etc.)
+- Can take advantage of <ins>dependency injection</ins> to consume providers within the same module
 
 ## Defining a Controller
 

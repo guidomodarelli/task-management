@@ -2,17 +2,17 @@
 
 ![DTO](./images/dto.png)
 
-Notice how many times we refer to the properties of a task within our code. Both in the controller and the service, just to retrieve the <u>title and description</u>.
+Notice how many times we refer to the properties of a task within our code. Both in the controller and the service, just to retrieve the <ins>title and description</ins>.
 
-So, software changes all the time. Imagine a situation where we need to make changes to the shape of data. Maybe at some point, we need to change the types of these parameters. Maybe as requirements change, we need to add additional information to tasks. To apply such changes, we will have to <u>change the implementation</u> in multiple places. This adds complexity to our application and makes it more difficult to scale it.
+So, software changes all the time. Imagine a situation where we need to make changes to the shape of data. Maybe at some point, we need to change the types of these parameters. Maybe as requirements change, we need to add additional information to tasks. To apply such changes, we will have to <ins>change the implementation</ins> in multiple places. This adds complexity to our application and makes it more difficult to scale it.
 
 So, to put everything I just said in one sentence, we do not have a single source of truth, a main place where we manage the shape of data as it flows through the different components of our application.
 
 ## Definitions:
 
-  - <u>[Wikipedia](https://en.wikipedia.org/wiki/Data_transfer_object)</u>: "A DTO is an object that carries data between processes."
-  - <u>[Stack overflow](https://stackoverflow.com/a/1058186/12151113)</u>: "A DTO is an object that is used to encapsulate data and send it from one subsystem of an application to another."
-  - <u>NestJs Docs</u>: "A DTO is an object that defines how the data will be sent over the network"
+  - <ins>[Wikipedia](https://en.wikipedia.org/wiki/Data_transfer_object)</ins>: "A DTO is an object that carries data between processes."
+  - <ins>[Stack overflow](https://stackoverflow.com/a/1058186/12151113)</ins>: "A DTO is an object that is used to encapsulate data and send it from one subsystem of an application to another."
+  - <ins>NestJs Docs</ins>: "A DTO is an object that defines how the data will be sent over the network"
 ---
 
 - Do not leak any behavior except for **storage**, **retrieval**, **serialization**, and **deserialization** of its own data
