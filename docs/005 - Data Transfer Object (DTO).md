@@ -23,7 +23,7 @@ So, to put everything I just said in one sentence, we do not have a single sourc
 - Can be defined using an interface or a **class** (The recommended approach by NestJs docs. The reason is that the interface are a part of Typescript and therefore they are NOT preserved post compilation or at runtime)
 - This class or interface is used by services and controllers, NOT intended as a definition of a domain model
 - Data can be used across layers and implementations can be changed without affecting the definition of a domain model
-- Clases allow us to do more, and since they are a part of Javascript, they will persist post-compilation.
+- Classes allow us to do more, and since they are a part of Javascript, they will persist post-compilation.
 - NestJS cannot refer to interfaces in run-time, but can refer to classes.
 
 ## Example
@@ -37,4 +37,4 @@ These details can be used across many parts of the application, such as controll
 > [!IMPORTANT]
 > - DTOs are not mandatory
 > - The value they add makes it worth while to use them when applicable
-> - Applying the DTO pattern as soon as possible will make it for to mantain and refactor your code
+> - Applying the DTO pattern as soon as possible will make it for to maintain and refactor your code
