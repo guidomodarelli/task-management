@@ -9,7 +9,7 @@
 
 - Services are implemented using providers.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > Not all providers are services!
 
 - Services can be implemented as singletons (That means, the same instance will be shared across the application - acting as a single source of truth). When wrapped with the `@Injectable` decorator and then provided to a module.

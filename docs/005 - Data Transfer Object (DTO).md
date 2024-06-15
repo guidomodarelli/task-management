@@ -34,7 +34,7 @@ Imagine you're developing a system for a delivery company and you need to develo
 
 These details can be used across many parts of the application, such as controller, pipe, service and repository. And these will also become very useful when we need validate data.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > - DTOs are not mandatory
 > - The value they add makes it worth while to use them when applicable
 > - Applying the DTO pattern as soon as possible will make it for to mantain and refactor your code
