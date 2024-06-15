@@ -13,9 +13,9 @@
 
 `header.payload.signature`
 
-<ins>header</ins>: contains metadata about the token (type, hashing algorithm, etc.)
-<ins>payload</ins>: contains claims (statements about an entity - for example, a use and additional data)
-<ins>signature</ins>: is the result of the encoded header, the encoded payload, signed against a secret. It's the result of the encoded header and the encoded payload running through a one way hashing algorithm signed against a secret or a private key.
+- <ins>header</ins>: contains metadata about the token (type, hashing algorithm, etc.)
+- <ins>payload</ins>: contains claims (statements about an entity - for example, a use and additional data)
+- <ins>signature</ins>: is the result of the encoded header, the encoded payload, signed against a secret. It's the result of the encoded header and the encoded payload running through a one way hashing algorithm signed against a secret or a private key.
 
 That secret is a secret that only we know.
 
