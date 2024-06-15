@@ -1,7 +1,7 @@
 # Authentication and Authorization
 
-<ins>Authentication</ins>: is when you want to verify that somebody is who they claim to be
-<ins>Authorization</ins>: is letting somebody into a specific system depending on their identify or permission level
+- <ins>Authentication</ins>: is when you want to verify that somebody is who they claim to be
+- <ins>Authorization</ins>: is letting somebody into a specific system depending on their identify or permission level
 
 ## JSON Web Tokens (JWT)
 
