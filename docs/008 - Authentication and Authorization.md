@@ -43,7 +43,7 @@ We're going to use PassportJs, which is an authentication middleware for NodeJs.
 
 ## Packages explanation
 
-`@nestjs/jwt`: that's a jwt package that allows integration with the NestJS framework
-`@nestjs/passport`: integrates the passport package with the NestJs module ecosystem
-`passport`: the pure passport library with the core functionality and passport
-`passport-jwt`: is the strategy that we use with passport to work with JSON web tokens
+- `@nestjs/jwt`: that's a jwt package that allows integration with the NestJS framework
+- `@nestjs/passport`: integrates the passport package with the NestJs module ecosystem
+- `passport`: the pure passport library with the core functionality and passport
+- `passport-jwt`: is the strategy that we use with passport to work with JSON web tokens
